@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4861200293544945964}
   - component: {fileID: 2853201482409967489}
   m_Layer: 0
-  m_Name: PlayerHandler
+  m_Name: PlayerConnectionHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
