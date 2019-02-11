@@ -8,6 +8,8 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
     [SerializeField]
     private GameObject playerPrefabToInstantiate = null;
 
+    public string playerName = "NormalName";
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,13 +51,29 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
     {
         // Update runs on EVERYONE's computer, whether they own this
         // gameObject or not..
+
+
+        // Is this actually my own local PlayerObject??
+        if (!isLocalPlayer)
+        {
+            // This Object belongs to another player
+            return;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            string n = "Quill" + Random.Range(1, 100);
+            Debug.Log("Sending the server a request to change our name to: " + n);
+            CmdChangePlayerName(n);
+        }
     }
 
 
 
     // [Command] makes sures that the Function will ONLY BE 
     // Executed on the Server
-    [Command]   // We are guaranteed to be on the server now
+    [Command]   // We are guaranteed to be on the server now, basically client to server
     void CmdSpawnMyPlayer()
     {
         GameObject go = Instantiate(playerPrefabToInstantiate);
@@ -67,4 +85,27 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
         // So that the client can modify that GO locally
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
     }
+
+    [Command]   // We are guaranteed to be on the server now, basically client to server
+    void CmdChangePlayerName(string newName)
+    {
+        Debug.Log("CmdChangePlayerName: " + newName);
+        // Modify server's copy of data
+        playerName = newName;
+
+        // Tell rest of clients what this player's name now is.
+        RpcChangePlayerName(playerName);
+    }
+
+
+
+    // [ClientRpc] makes sures that the Function will ONLY BE 
+    // Executed on the Clients.
+    [ClientRpc]
+    void RpcChangePlayerName(string newNameFromServer)
+    {
+        Debug.Log("RpcChangePlayerName: We were asked to change the player name from [" + "connectionToClient.address" + "] to: " + newNameFromServer);
+        this.playerName = newNameFromServer;
+    }
+
 }
