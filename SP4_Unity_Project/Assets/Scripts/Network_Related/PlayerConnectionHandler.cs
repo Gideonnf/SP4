@@ -62,6 +62,9 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
 
         // Now that the GameObject exists on the server,
         // propagate it to all connected clients.
-        NetworkServer.Spawn(go);
+
+        // Assign the client's Autority to this newly created GO
+        // So that the client can modify that GO locally
+        NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
     }
 }
