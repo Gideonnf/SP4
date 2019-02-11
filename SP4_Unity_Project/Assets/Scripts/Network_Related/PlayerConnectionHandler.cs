@@ -104,7 +104,7 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
     [ClientRpc]
     void RpcChangePlayerName(string newNameFromServer)
     {
-        Debug.Log("RpcChangePlayerName: We were asked to change the player name from [" + "connectionToClient.address" + "] to: " + newNameFromServer);
+        Debug.Log("RpcChangePlayerName: We were asked to change the player name from a particular GameObject to: " + newNameFromServer);
         this.playerName = newNameFromServer;
     }
 
