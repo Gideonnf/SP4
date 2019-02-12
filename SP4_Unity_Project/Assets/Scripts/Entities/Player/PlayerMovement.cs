@@ -21,13 +21,19 @@ public class PlayerMovement : NetworkBehaviour //MonoBehaviour
         {
             return;
         }
+        // if still in lobby
+        if (GetComponent<PlayerID>().inLobby)
+        {
+            return;
+        }
+
 
         // If spacebar was released
-        if(Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             this.transform.Translate(0, 1, 0);
         }
-
+       
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rb.MovePosition(transform.position + transform.forward * Time.deltaTime);

@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 public class PlayerID : NetworkBehaviour//MonoBehaviour
 {
     [SyncVar] public string playerUniqueName;
+    [SyncVar] public bool inLobby = true;
+
     private NetworkInstanceId playerNetID;
     private Transform myTransform;
 
@@ -15,6 +17,8 @@ public class PlayerID : NetworkBehaviour//MonoBehaviour
 
         GetNetIdentity();
         SetIdentity();
+
+        inLobby = true;
     }
 
 
