@@ -70,12 +70,22 @@ public class ServerGameManager : NetworkBehaviour
         {
             nextTick = Time.time + tickLength;
 
-            foreach(GameObject Lootbox in Lootboxes)
+            bool foundBoxes = false;
+
+            foreach (GameObject Lootbox in Lootboxes)
             {
                 if (Lootbox == null)
                     continue;
 
                 Lootbox.transform.Translate(0, 0.1f, 0);
+                Lootbox.GetComponent<NetworkTransform>().SetDirtyBit(1);
+                foundBoxes = true;
+            }
+
+            if (foundBoxes == false)
+            {
+                CreateAllLootbox();
+                tickLength = 0.2f;
             }
         }
     }
