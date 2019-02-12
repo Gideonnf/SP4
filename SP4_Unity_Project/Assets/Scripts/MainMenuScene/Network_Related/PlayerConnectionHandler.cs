@@ -35,7 +35,7 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
             // NOTE: NetworkServer.Spawn() can ONLY be called by the Server or Host!!
 
             // Command the Server to spawn our player unit
-            /*GetComponent<ServerCommands>().*/CmdSpawnMyPlayer();
+            CmdSpawnMyPlayer();
 
             //Instantiate(playerPrefabToInstantiate);
         }
@@ -65,7 +65,7 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
         {
             string n = "Quill" + Random.Range(1, 100);
             Debug.Log("Sending the server a request to change our name to: " + n);
-           /* GetComponent<ServerCommands>().*/CmdChangePlayerName(n);
+            CmdChangePlayerName(n);
         }
     }
 

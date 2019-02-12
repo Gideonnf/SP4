@@ -10,7 +10,7 @@ public class NetworkManagerExternalScript : NetworkManager//MonoBehaviour
 
 
     // When a new client tries to connect to this server
-    //[Command]
+    // THIS IS ONLY EXECUTED IN THE SERVER
     public override void OnServerConnect(NetworkConnection newConnection)
     {
         //if (Conn.hostId >= 0)
@@ -22,7 +22,7 @@ public class NetworkManagerExternalScript : NetworkManager//MonoBehaviour
     }
 
     // When an existing client wants to disconnect from server
-    //[Command]
+    // THIS IS ONLY EXECUTED IN THE SERVER
     public override void OnServerDisconnect(NetworkConnection conn)
     {
         // Your code here
