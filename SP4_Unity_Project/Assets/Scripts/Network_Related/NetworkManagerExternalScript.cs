@@ -10,6 +10,7 @@ public class NetworkManagerExternalScript : NetworkManager//MonoBehaviour
 
 
     // When a new client tries to connect to this server
+    //[Command]
     public override void OnServerConnect(NetworkConnection newConnection)
     {
         //if (Conn.hostId >= 0)
@@ -21,6 +22,7 @@ public class NetworkManagerExternalScript : NetworkManager//MonoBehaviour
     }
 
     // When an existing client wants to disconnect from server
+    //[Command]
     public override void OnServerDisconnect(NetworkConnection conn)
     {
         // Your code here
@@ -31,20 +33,24 @@ public class NetworkManagerExternalScript : NetworkManager//MonoBehaviour
             if(conn == connection)
             {
                 //ClientLeft(connection.address);
+                Debug.Log("Delete Leaving Client's Stuff");
+                NetworkServer.DestroyPlayersForConnection(conn);
             }
         }
     }
 
 
-    ////Detect when a client connects to the Server
+    //Detect when a client connects to the Server
+    //[ClientRpc]
     //public override void OnClientConnect(NetworkConnection connection)
     //{
     //    Debug.Log("A Client Connected");
     //}
 
 
-    ////Detect when a client connects to the Server
-    ////This is called on the client when it disconnects from the server
+    //Detect when a client connects to the Server
+    //This is called on the client when it disconnects from the server
+    //[ClientRpc]
     //public override void OnClientDisconnect(NetworkConnection connection)
     //{
     //    Debug.Log("A Client Disconnected");
