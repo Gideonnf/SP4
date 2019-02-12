@@ -202,7 +202,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126353318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -388,7 +388,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334032504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -693,7 +693,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775020855}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -784,7 +784,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777776272}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -831,8 +831,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 976060260}
-  - component: {fileID: 976060259}
   - component: {fileID: 976060261}
+  - component: {fileID: 976060259}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 976060258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1d891fde995824bba06532b81f2d47, type: 3}
+  m_Script: {fileID: 11500000, guid: 536b969bb2eaf49499fa13bcee040e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LootPrefab: {fileID: 7702014879532866773, guid: eff2b420b2b38014586c20202e756446,
@@ -861,7 +861,6 @@ MonoBehaviour:
   - {fileID: 777776273}
   - {fileID: 1555449155}
   - {fileID: 334032505}
-  Lootboxes: []
 --- !u!4 &976060260
 Transform:
   m_ObjectHideFlags: 0
@@ -1122,7 +1121,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555449154}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

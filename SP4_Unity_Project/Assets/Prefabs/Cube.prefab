@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alive: 1
   powerupPrefab: {fileID: 0}
-  offset: 2
+  offset: 0.5
 --- !u!114 &1161215117025065566
 MonoBehaviour:
   m_ObjectHideFlags: 0

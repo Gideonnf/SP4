@@ -13,9 +13,10 @@ public class LootBox : NetworkBehaviour
     private float maxY, minY;
     private static bool floatDown = false;
     
+   // [ClientCallback]
     public override void OnStartClient()
     {
-        if (!ServerGameManager.gameManager.Lootboxes.Contains(this.gameObject))
+        if (!ServerManager.serverManager.Lootboxes.Contains(this.gameObject))
         {
             ServerGameManager.gameManager.Lootboxes.Add(this.gameObject);
         }
