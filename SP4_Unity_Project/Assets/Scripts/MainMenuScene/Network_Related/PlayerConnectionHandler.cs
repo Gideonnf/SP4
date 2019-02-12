@@ -18,6 +18,7 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
         if (!isLocalPlayer)
         {
             // This Object belongs to another player
+
             return;
         }
 
@@ -78,7 +79,7 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
     {
         GameObject go = Instantiate(playerPrefabToInstantiate);
         attachedPlayerObject = go;
-        attachedPlayerObject.transform.parent = this.transform;
+        //attachedPlayerObject.transform.parent = this.transform;
 
         // Now that the GameObject exists on the server,
         // propagate it to all connected clients.
