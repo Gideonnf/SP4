@@ -21,13 +21,16 @@ public class PlayerID : NetworkBehaviour//MonoBehaviour
     void Awake()
     {
         myTransform = transform;
-
+        // DON'T DESTROY THIS PLAYER OBJECT WHEN CHANGING 
+        // FROM Lobby to Game 
+        DontDestroyOnLoad(myTransform.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (myTransform.name == "" ||myTransform.name == "PlayerConnectionHandler(Clone)")
+        // If my name is empty or a clone of someone else's Player..
+        if (myTransform.name == "" || myTransform.name == "ActualPlayerObject(Clone)")
         {
             SetIdentity();
         }
