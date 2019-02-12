@@ -7,7 +7,7 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
 {
     [SerializeField]
     private GameObject playerPrefabToInstantiate = null;
-
+    public GameObject attachedPlayerObject = null;
     public string playerName = "NormalName";
 
 
@@ -77,6 +77,8 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
     void CmdSpawnMyPlayer()
     {
         GameObject go = Instantiate(playerPrefabToInstantiate);
+        attachedPlayerObject = go;
+        attachedPlayerObject.transform.parent = this.transform;
 
         // Now that the GameObject exists on the server,
         // propagate it to all connected clients.
@@ -107,5 +109,6 @@ public class PlayerConnectionHandler : NetworkBehaviour //MonoBehaviour
         Debug.Log("RpcChangePlayerName: We were asked to change the player name from a particular GameObject to: " + newNameFromServer);
         this.playerName = newNameFromServer;
     }
+
 
 }
