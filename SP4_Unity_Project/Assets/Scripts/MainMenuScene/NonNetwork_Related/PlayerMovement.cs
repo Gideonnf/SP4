@@ -25,5 +25,22 @@ public class PlayerMovement : NetworkBehaviour //MonoBehaviour
         {
             this.transform.Translate(0, 1, 0);
         }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            this.transform.Translate(0, 0, 0.2f);
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            this.transform.Translate(0, 0, -0.2f);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            this.transform.Translate(-0.2f, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            this.transform.Translate(0.2f, 0, 0);
+        }
     }
 }
