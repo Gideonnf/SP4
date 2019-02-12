@@ -5,10 +5,12 @@ using UnityEngine.Networking;
 
 public class PlayerMovement : NetworkBehaviour //MonoBehaviour
 {
+    public Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,19 +30,19 @@ public class PlayerMovement : NetworkBehaviour //MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            this.transform.Translate(0, 0, 0.2f);
+            rb.MovePosition(transform.position + transform.forward * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            this.transform.Translate(0, 0, -0.2f);
+            rb.MovePosition(transform.position - transform.forward * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            this.transform.Translate(-0.2f, 0, 0);
+            rb.MovePosition(transform.position - transform.right * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.Translate(0.2f, 0, 0);
+            rb.MovePosition(transform.position + transform.right * Time.deltaTime);
         }
     }
 }
