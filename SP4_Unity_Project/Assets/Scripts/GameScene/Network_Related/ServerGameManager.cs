@@ -27,6 +27,9 @@ public class ServerGameManager : NetworkBehaviour
     {
         gameManager = this;
         Lootboxes = new List<GameObject>();
+
+        CreateAllLootbox();
+
     }
 
     public void ExitGame()
@@ -46,15 +49,10 @@ public class ServerGameManager : NetworkBehaviour
     {
         GameObject box = (GameObject)Instantiate(prefab);
         box.transform.position = position;
-        // box.GetComponent<>
+        box.GetComponent<LootBox>().SetUp(position);
         Lootboxes.Add(box);
 
         NetworkServer.Spawn(box);
-    }
-
-    public override void OnStartServer()
-    {
-        CreateAllLootbox();
     }
 
     // Update is called once per frame
@@ -77,8 +75,9 @@ public class ServerGameManager : NetworkBehaviour
                 if (Lootbox == null)
                     continue;
 
-                Lootbox.transform.Translate(0, 0.1f, 0);
-                Lootbox.GetComponent<NetworkTransform>().SetDirtyBit(1);
+                Lootbox.GetComponent<LootBox>().UpdateLootbox();
+               // Lootbox.transform.Translate(0, 0.1f, 0);
+               // Lootbox.GetComponent<NetworkTransform>().SetDirtyBit(1);
                 foundBoxes = true;
             }
 

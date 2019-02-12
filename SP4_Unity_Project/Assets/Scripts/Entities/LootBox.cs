@@ -9,6 +9,10 @@ public class LootBox : NetworkBehaviour
 
     public GameObject powerupPrefab;
 
+    public float offset = 2.0f;
+    private float maxY, minY;
+    private static bool floatDown = false;
+    
     public override void OnStartClient()
     {
         if (!ServerGameManager.gameManager.Lootboxes.Contains(this.gameObject))
@@ -26,7 +30,39 @@ public class LootBox : NetworkBehaviour
         }
     }
 
-    void FixedUpdate()
+    public void UpdateLootbox()
+    {
+        // Lootbox.transform.Translate(0, 0.1f, 0);
+        // Lootbox.GetComponent<NetworkTransform>().SetDirtyBit(1);
+        if (floatDown == false)
+        {
+           // this.transform = 
+            this.transform.Translate(0, 2.0f * Time.deltaTime, 0);
+        }
+        else
+        {
+            this.transform.Translate(0, -2.0f * Time.deltaTime, 0);
+        }
+
+        if (transform.position.y >= maxY)
+        {   // Reached the highest point
+            floatDown = true;
+        }
+        else if (transform.position.y <= minY)
+        { // Reached the lowest point
+            floatDown = false;
+        }
+
+        GetComponent<NetworkTransform>().SetDirtyBit(1);
+    }
+
+    public void SetUp(Vector3 Position)
+    {
+        maxY = Position.y + offset;
+        minY = Position.y - offset;
+    }
+
+    void Update()
     {
        // this.transform.Translate(0, 0.1f, 0);
     }
