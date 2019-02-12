@@ -393,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &656657230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,14 +415,14 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 9156037237924372871, guid: 63535a7df56e2c34a859231b4e7a8f9b,
+  m_PlayerPrefab: {fileID: 407233607011032086, guid: cf2104e4efedab34ea2c94020ea4bfb7,
     type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
+  m_OfflineScene: MainMenuScene
+  m_OnlineScene: GameScene
   m_SpawnPrefabs:
-  - {fileID: 407233607011032086, guid: cf2104e4efedab34ea2c94020ea4bfb7, type: 3}
+  - {fileID: 0}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -587,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1788355179
 MonoBehaviour:
   m_ObjectHideFlags: 0
