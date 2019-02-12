@@ -21,11 +21,11 @@ public class PlayerMovement : NetworkBehaviour //MonoBehaviour
         {
             return;
         }
-        // if still in lobby
-        if (GetComponent<PlayerID>().inLobby)
-        {
-            return;
-        }
+        //// if still in lobby
+        //if (GetComponent<PlayerID>().inLobby)
+        //{
+        //    return;
+        //}
 
 
         // If spacebar was released

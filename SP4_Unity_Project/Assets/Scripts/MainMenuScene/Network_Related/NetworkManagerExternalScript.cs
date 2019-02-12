@@ -8,9 +8,19 @@ using UnityEngine.UI;
 public class NetworkManagerExternalScript : NetworkManager//MonoBehaviour
 {
     //[SerializeField]
+    //public List<GameObject> clientPlayerObjects = new List<GameObject>();
+    //public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
+    //{
+    //    GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+    //    //player.GetComponent<Player>().color = Color.red;
+    //    NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+
+    //    clientPlayerObjects.Add(player);
+    //}
+
+
+    //[SerializeField]
     //private List<NetworkConnection> connectedClients = new List<NetworkConnection>();
-
-
     //// When a new client tries to connect to this server
     //// THIS IS ONLY EXECUTED IN THE SERVER
     //public override void OnServerConnect(NetworkConnection newConnection)
