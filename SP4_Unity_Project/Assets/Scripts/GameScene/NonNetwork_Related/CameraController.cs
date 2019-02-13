@@ -6,17 +6,14 @@ using System.Collections;
 public class CameraController : NetworkBehaviour
 {
 	// Store a Vector3 offset from the player (a distance to place the camera from the player at all times)
-	private Vector3 offset;
+	public Vector3 offset;
 
     GameObject[] players;
-    GameObject player;
+    GameObject localPlayer;
 
     // At the start of the game..
     void Start ()
 	{
-       
-        // Create an offset by subtracting the Camera's position from the player's position
-     
     }
 
     // After the standard 'Update()' loop runs, and just before each frame is rendered..
@@ -25,7 +22,7 @@ public class CameraController : NetworkBehaviour
         // Set the position of the Camera (the game object this script is attached to)
         // to the player's position, plus the offset amount
 
-        if (player == null)
+        if (localPlayer == null)
         {
             players = GameObject.FindGameObjectsWithTag("Player");
             for (int i = 0; i < players.Length; ++i)
@@ -34,16 +31,17 @@ public class CameraController : NetworkBehaviour
                 if (players[i].GetComponent<NetworkIdentity>().isLocalPlayer)
                 {
                     // This Object belongs to the local player
-                    player = players[i];
-                    offset = transform.position - player.transform.position;
-                    transform.position = player.transform.position + offset;
+                    localPlayer = players[i];
+                    //set camera starting location
+                    transform.position = localPlayer.transform.position + offset;
                     return;
                 }
             }
         }
         else
         {
-            transform.position = player.transform.position + offset;
+            //set camera to follow player
+            transform.position = localPlayer.transform.position + offset;
         }
     }
 }
