@@ -6,11 +6,12 @@ using UnityEngine.Networking;
 public class PlayerMovement : NetworkBehaviour //MonoBehaviour
 {
     public Rigidbody rb;
-
+    float speed;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        speed = 5;
     }
 
     // Update is called once per frame
@@ -34,21 +35,21 @@ public class PlayerMovement : NetworkBehaviour //MonoBehaviour
             this.transform.Translate(0, 1, 0);
         }
        
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
-            rb.MovePosition(transform.position + transform.forward * Time.deltaTime);
+            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
-            rb.MovePosition(transform.position - transform.forward * Time.deltaTime);
+            rb.MovePosition(transform.position - transform.forward * Time.deltaTime * speed);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
-            rb.MovePosition(transform.position - transform.right * Time.deltaTime);
+            rb.MovePosition(transform.position - transform.right * Time.deltaTime * speed);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
-            rb.MovePosition(transform.position + transform.right * Time.deltaTime);
+            rb.MovePosition(transform.position + transform.right * Time.deltaTime * speed);
         }
     }
 }
