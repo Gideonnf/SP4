@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerInfo : MonoBehaviour
+public class PlayerInfo : NetworkBehaviour
 {
     public Material good;
     public Material bad;
@@ -16,6 +17,8 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (!isLocalPlayer)
+        //    return;
 
         if (Vector3.Distance(zone.GetComponent<ZoneController>().GetPos(), this.transform.position) > zone.GetComponent<ZoneController>().GetScale().x / 2)
         {
